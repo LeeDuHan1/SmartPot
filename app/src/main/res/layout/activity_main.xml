@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="0.5"
+        android:background="@drawable/flowerbackground"
+        android:orientation="horizontal">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/cirecle_view"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageButton
+                    android:id="@+id/titlePreView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="0dp"
+                    android:background="#00000000"
+                    android:onClick="onImageClicked"
+                    android:src="@drawable/picture" />
+                <com.bigpicture.lee_2.smartpot.CircleImageView
+                    android:id="@+id/titleImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/plantTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="21dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="10dp"
+                android:text="싱고니움"
+                android:textColor="#ffffff"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:text="적정 습도"
+                android:textColor="#ffffff"
+                android:textSize="13dp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/moist_frame"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <FrameLayout
+                android:id="@+id/moist_frame"
+                android:layout_width="70dp"
+                android:layout_height="30dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/cirecle_view"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <TextView
+                    android:id="@+id/properMoist"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="0%"
+                    android:textColor="#cd3216"
+                    android:textSize="12dp"
+                    android:letterSpacing="-0.1"/>
+            </FrameLayout>
+
+
+        </android.support.constraint.ConstraintLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="0.98"
+        android:background="@drawable/gradient"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tip_box"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:text="육성 TIP"
+                android:textColor="#ffffff"
+                android:textSize="12dp"
+                android:typeface="sans" />
+
+            <com.bigpicture.lee_2.smartpot.LineDrawView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="3dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.3"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tip_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="23dp"
+                android:text="@string/tip_name"
+                android:textColor="#ffffff" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.8"
+        android:background="#ffffff"
+        android:baselineAligned="false"
+        android:orientation="horizontal"
+        android:paddingEnd="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingStart="10dp"
+        android:paddingTop="20dp">
+
+        <FrameLayout
+            android:id="@+id/frame1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <com.bigpicture.lee_2.smartpot.DrawView
+                android:id="@+id/circle1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/moist"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="40dp"
+                android:text="습도"
+                android:textColor="#4d606f"
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/moist_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="55dp"
+                android:text="0%"
+                android:textColor="#323c45"
+                android:textSize="20dp" />
+
+            <com.bigpicture.lee_2.smartpot.LineDrawView2
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="85dp" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/frame2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <com.bigpicture.lee_2.smartpot.DrawView2
+                android:id="@+id/circle2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/cds_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="40dp"
+                android:text="조도"
+                android:textColor="#4d606f"
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/cds_value2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="55dp"
+                android:text="0%"
+                android:textColor="#323c45"
+                android:textSize="20dp" />
+
+            <com.bigpicture.lee_2.smartpot.LineDrawView2
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="85dp" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/frame3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <com.bigpicture.lee_2.smartpot.DrawView3
+                android:id="@+id/circle3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/temperature"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="40dp"
+                android:text="온도"
+                android:textColor="#4d606f"
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/temperature_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="55dp"
+                android:text="0%"
+                android:textColor="#323c45"
+                android:textSize="20dp" />
+
+            <com.bigpicture.lee_2.smartpot.LineDrawView2
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="85dp" />
+        </FrameLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1.03"
+        android:background="#e8ebe9"
+        android:orientation="horizontal"
+        android:padding="0dp">
+
+        <Button
+            android:onClick="onCreateClicked"
+            android:id="@+id/CreateBtn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#e8ebe9"
+            android:padding="0dp"
+            android:text="@string/btn_name"
+            android:textAllCaps="false"
+            android:textColor="#3d4d5a"
+            android:textSize="12dp" />
+    </LinearLayout>
+
+</LinearLayout>

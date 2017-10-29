@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageButton
+        android:id="@+id/emtyImage"
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="16dp"
+        android:filterTouchesWhenObscured="false"
+        android:fitsSystemWindows="false"
+        android:onClick="onPictureClicked"
+        android:scaleType="fitXY"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/defalut_image"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2" />
+
+    <Button
+        android:id="@+id/sendBtn"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:onClick="onSendBtnClicked"
+        android:text="식물명 알아내기"
+
+        android:visibility="visible" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="50dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="2"
+            android:text="식물이름"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/plantNameEdit"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="5"
+            android:text =""
+            android:ems="10" />
+
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="onSearchClicked"
+            android:text="검색" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="320dp"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="8dp">
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="20dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:onClick="onCancelClicked"
+            android:text="취소" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="20dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:onClick="onNextClicked"
+            android:text="전송" />
+    </LinearLayout>
+
+</LinearLayout>
