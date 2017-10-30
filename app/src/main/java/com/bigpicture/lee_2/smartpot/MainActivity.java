@@ -177,6 +177,7 @@ public class MainActivity extends AppCompatActivity {
             public void run() {
                 try{
                     if(running) {
+                        GetParsingData gpd = new GetParsingData(valueUrl);
                         gpd.start();
                         try{
                             gpd.join();
@@ -267,18 +268,6 @@ public class MainActivity extends AppCompatActivity {
                     titleImage.setImageBitmap(csb.StringToBitmap(photo));
                 }
                 running = true;
-
-//                Thread thread = new Thread(new Runnable() {
-//                    @Override
-//                    public void run() {
-//                        try{
-//
-//                        }catch (Exception e){
-//                            e.printStackTrace();
-//                        }
-//                    }
-//                });
-//                thread.start();
             }
         }
     }
