@@ -25,7 +25,7 @@ public class DrawView3 extends DrawViewSet {
         Paint pnt = PaintSetting();
         Paint pnt2 = Paint2Setting();
         RectF rect = RectFSetting();
-        rect.set(canvas.getWidth()/10, canvas.getHeight()/6, canvas.getWidth()*9/10,canvas.getHeight()*5/6);
+        rect.set(canvas.getWidth()/10, canvas.getHeight()/6, canvas.getWidth()*9/10,canvas.getHeight()*9/12);
         canvas.drawArc(rect, 135, 270, false, pnt);
         canvas.drawArc(rect, 135, point, false, pnt2);
     }

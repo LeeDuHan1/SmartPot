@@ -37,6 +37,7 @@ public class AddPicture extends AppCompatActivity {
     EditText plantNameEdit;
     ProgressDialog dialog;
     String jsonString;
+    Boolean isPlantSet = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,16 +49,30 @@ public class AddPicture extends AppCompatActivity {
     }
 
     public void onNextClicked(View view) {
-        Intent retrunIntent = new Intent();
-        String stringPhoto = imageString;
-        String stringName = "";
-        if (plantNameEdit.getText() != null) {
-            stringName = plantNameEdit.getText().toString();
+        if(isPlantSet) {
+            Intent retrunIntent = new Intent();
+            String stringPhoto = imageString;
+            String stringName = "";
+            if (plantNameEdit.getText() != null) {
+                stringName = plantNameEdit.getText().toString();
+            }
+            retrunIntent.putExtra("photo", stringPhoto);
+            retrunIntent.putExtra("name", stringName);
+            setResult(RESULT_OK, retrunIntent);
+            finish();
+        }else{
+            DialogInterface.OnClickListener cancelListener = new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.dismiss();
+                }
+            };
+            new AlertDialog.Builder(this)
+                    .setTitle("유효한 식물명이 아닙니다.")
+                    .setPositiveButton("확인",cancelListener)
+                    .show();
         }
-        retrunIntent.putExtra("photo", stringPhoto);
-        retrunIntent.putExtra("name", stringName);
-        setResult(RESULT_OK, retrunIntent);
-        finish();
+
     }
 
     public void onSendBtnClicked(View view){
@@ -126,6 +141,7 @@ public class AddPicture extends AppCompatActivity {
                     dialog.dismiss();
                 }
             };
+            isPlantSet =true;
             new AlertDialog.Builder(this)
                     .setTitle("본식물명은 유효합니다.")
                     .setPositiveButton("확인", cancelListener)
@@ -137,6 +153,7 @@ public class AddPicture extends AppCompatActivity {
                     dialog.dismiss();
                 }
             };
+            isPlantSet =false;
             new AlertDialog.Builder(this)
                     .setTitle("검색결과없습니다.")
                     .setPositiveButton("확인", cancelListener)

@@ -42,4 +42,27 @@ public class GetDetail{
 
         return result;
     }
+    public int GetDetailValue(String codeName){
+        GetDetailCode gdc = new GetDetailCode(plantName);
+        this.code = gdc.GetCode(codeName);
+        int result = 0;
+
+        if(code.equals("082001")){
+            result = 13;
+        }else if(code.equals("082002")){
+            result = 18;
+        }else if(code.equals("082003")){
+            result = 23;
+        }else if(code.equals("082004")){
+            result = 28;
+        }else if(code.equals("083001")){
+            result = 40;
+        }else if(code.equals("083002")){
+            result = 55;
+        }else if(code.equals("083004")){
+            result = 70;
+        }
+
+        return result;
+    }
 }

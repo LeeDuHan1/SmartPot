@@ -9,8 +9,8 @@
 
     <ImageButton
         android:id="@+id/emtyImage"
-        android:layout_width="300dp"
-        android:layout_height="200dp"
+        android:layout_width="600dp"
+        android:layout_height="400dp"
         android:layout_marginTop="16dp"
         android:filterTouchesWhenObscured="false"
         android:fitsSystemWindows="false"
@@ -29,18 +29,18 @@
 
     <Button
         android:id="@+id/sendBtn"
-        android:layout_width="150dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:onClick="onSendBtnClicked"
         android:text="식물명 알아내기"
-
+        android:textSize="24dp"
         android:visibility="visible" />
 
     <LinearLayout
         android:id="@+id/linearLayout2"
-        android:layout_width="300dp"
-        android:layout_height="40dp"
+        android:layout_width="600dp"
+        android:layout_height="80dp"
         android:layout_marginBottom="50dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
@@ -56,30 +56,32 @@
             android:layout_marginLeft="5dp"
             android:layout_weight="2"
             android:text="식물이름"
-            android:textSize="16sp" />
+            android:textSize="32dp" />
 
         <EditText
             android:id="@+id/plantNameEdit"
-            android:layout_width="110dp"
+            android:layout_width="220dp"
             android:layout_height="wrap_content"
             android:layout_weight="5"
             android:text =""
-            android:ems="10" />
+            android:ems="20"
+            android:textSize="28dp"/>
 
         <Button
             android:id="@+id/button5"
-            android:layout_width="60dp"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="onSearchClicked"
-            android:text="검색" />
+            android:text="검색"
+            android:textSize="24dp"/>
 
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="320dp"
-        android:layout_height="40dp"
+        android:layout_width="640dp"
+        android:layout_height="80dp"
         android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -87,21 +89,23 @@
 
         <Button
             android:id="@+id/button"
-            android:layout_width="20dp"
+            android:layout_width="40dp"
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:layout_weight="1"
             android:onClick="onCancelClicked"
-            android:text="취소" />
+            android:text="취소"
+            android:textSize="24dp"/>
 
         <Button
             android:id="@+id/button2"
-            android:layout_width="20dp"
+            android:layout_width="40dp"
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:layout_weight="1"
             android:onClick="onNextClicked"
-            android:text="전송" />
+            android:text="전송"
+            android:textSize="24dp"/>
     </LinearLayout>
 
 </LinearLayout>
