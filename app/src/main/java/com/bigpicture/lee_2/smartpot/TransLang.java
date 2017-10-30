@@ -15,19 +15,21 @@ public class TransLang {
         String name = "";
 
         if (engName.equals("guzmania")) {
-            name = "구자니아";
+            name = "구즈마니아";
         } else if (engName.equals("neriumoleander")) {
             name = "협죽도";
-        } else if (engName.equals("viburnum")) {
-            name = "더피고사리";
+        } else if (engName.equals("virburnum")) {
+            name = "아왜나무";
         } else if (engName.equals("rohdeajaponica")) {
             name = "만년청";
         } else if (engName.equals("syngonium")) {
             name = "싱고니움";
-        } else if (engName.equals("ficuselastia")) {
+        } else if (engName.equals("ficuselastica")) {
             name = "소피아고무나무";
         } else if (engName.equals("saxifragastolonifera")) {
             name = "바위취";
+        } else if(engName.equals("rohdeajaponica")){
+            name = "더피고사리";
         } else {
             name = "결과 없음";
         }

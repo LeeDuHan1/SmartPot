@@ -3,6 +3,10 @@ package com.bigpicture.lee_2.smartpot;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.widget.EditText;
+import android.widget.TextView;
+
+import org.json.JSONException;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -18,13 +22,15 @@ import java.net.URL;
 
 public class BackGroundTask extends AsyncTask<String, String, String> {
     private ProgressDialog progressDialog;
+    private EditText editText;
     private String pUrl;
     private String result;
 
-    public BackGroundTask(ProgressDialog progressDialog, String url) {
+    public BackGroundTask(ProgressDialog progressDialog, String url, EditText editText) {
         super();
         this.progressDialog = progressDialog;
         this.pUrl = url;
+        this.editText = editText;
     }
 
     @Override
@@ -49,6 +55,14 @@ public class BackGroundTask extends AsyncTask<String, String, String> {
     @Override
     protected void onPostExecute(String string) {
         super.onPostExecute(string);
+        try{
+            JsonParser jp = new JsonParser(string);
+            TransLang tl = new TransLang(jp.DoJsonPasing("0"));
+            this.editText.setText(tl.GetKorName());
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+        this.editText.invalidate();
         this.progressDialog.dismiss();
     }
 

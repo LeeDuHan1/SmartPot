@@ -32,7 +32,7 @@ public class AddPicture extends AppCompatActivity {
     private Bitmap photo;
     private ImageButton myEmtyBtn;
     String imageString =" ";
-    String pythonURL = "http://192.168.25.10:8000/?base64=";
+    String pythonURL = "http://110.46.204.146:8000/?base64=";
     String imagePlantName = " ";
     EditText plantNameEdit;
     ProgressDialog dialog;
@@ -75,7 +75,7 @@ public class AddPicture extends AppCompatActivity {
         imageString = imageString.replace("\n","");
         imageString = imageString.replace(" ","");
         String tempUrl = pythonURL.concat(imageString);
-        BackGroundTask backGroundTask = new BackGroundTask(dialog, tempUrl);
+        BackGroundTask backGroundTask = new BackGroundTask(dialog, tempUrl,plantNameEdit);
         backGroundTask.execute();
         try {
             jsonString = backGroundTask.execute().get();
