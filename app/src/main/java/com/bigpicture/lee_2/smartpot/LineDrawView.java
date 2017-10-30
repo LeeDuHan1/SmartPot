@@ -25,7 +25,7 @@ public class LineDrawView extends View {
         Paint pnt = new Paint();
         pnt.setShader(new LinearGradient(0,0,120,0, Color.parseColor("#eb847b"),Color.parseColor("#f2c29e"), Shader.TileMode.MIRROR));
         pnt.setStyle(Paint.Style.STROKE);
-        pnt.setStrokeWidth(20f);
+        pnt.setStrokeWidth(10f);
         canvas.drawLine(canvas.getWidth()/4,0,canvas.getWidth()*3/4,0,pnt);
     }
 }

@@ -84,7 +84,8 @@ public class AddPicture extends AppCompatActivity {
         }
         try{
             JsonParser jp = new JsonParser(jsonString);
-            imagePlantName = jp.DoJsonPasing("0");
+            TransLang tl = new TransLang(jp.DoJsonPasing("0"));
+            imagePlantName = tl.GetKorName();
             plantNameEdit.setText(imagePlantName);
         }catch (Exception e){
             e.printStackTrace();

@@ -12,19 +12,29 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.lang.ref.WeakReference;
+import java.util.Timer;
+import java.util.TimerTask;
+
 import static java.lang.Thread.sleep;
 
 
 public class MainActivity extends AppCompatActivity {
     public static final int RESULT_CODE_MENU = 100;
-    private TextView plantTitleText, tipText, properMoist;
+    private TextView plantTitleText, tipText, properMoist, moistView,cdsView,temperatureView;
     private ImageView titleImage;
+    private TimerTask timerTask;
+    private Timer timer;
+    static boolean running = false;
+    private float moist, cds, temperature =0f;
+    String moistStr, cdsStr, temperatureStr;
     ImageButton titlePreView;
     GetValueHandler getValueHandler;
     DrawView drawView;
     DrawView2 drawView2;
     DrawView3 drawView3;
-    GetPotValue gwv = new GetPotValue();
+    GetParsingData gpd ;
+    String valueUrl = "http://110.46.204.146:8080/arduinowebserver/sendingsmartphonedata";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,21 +48,74 @@ public class MainActivity extends AppCompatActivity {
         titleImage = (ImageView) findViewById(R.id.titleImage);
         titlePreView = (ImageButton) findViewById(R.id.titlePreView);
         properMoist = (TextView)findViewById(R.id.properMoist);
+        getValueHandler = new GetValueHandler();
+        gpd = new GetParsingData(valueUrl);
+        moistView = (TextView)findViewById(R.id.moist_value);
+        cdsView = (TextView)findViewById(R.id.cds_value);
+        temperatureView = (TextView)findViewById(R.id.temperature_value);
 
+    }
+    public void setValue(float moist,float cds, float temperature){this.moist =moist; this.cds = cds; this.temperature = temperature;}
+    @Override
+    protected void onResume() {
+        super.onResume();
 
+        timerTask = new TimerTask() {
+            @Override
+            public void run() {
+                try{
+                    if(running) {
+                        gpd.start();
+                        try{
+                            gpd.join();
+                        }catch (Exception e){
+                            e.printStackTrace();
+                        }
+                        XmlParser xp = new XmlParser(gpd.GetResult());
+                        setValue(Float.parseFloat(xp.DoXmlParser("water")),Float.parseFloat(xp.DoXmlParser("light")),Float.parseFloat(xp.DoXmlParser("temperature")));
+                        drawView.setPoint(moist*2.7f);
+                        drawView2.setPoint2(cds*2.7f);
+                        drawView3.setPoint3(temperature*2.7f);
+                         getValueHandler.sendEmptyMessage(1);
+                        Log.d("습도",Float.parseFloat(xp.DoXmlParser("water"))+"");
+                    }
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+        };
+        timer = new Timer();
+        timer.schedule(timerTask,0,10000);
     }
 
     @Override
-    protected void onStart() {
-        super.onStart();
-
-
+    protected void onPause() {
+        super.onPause();
+        timer.cancel();
     }
 
     public class GetValueHandler extends Handler{
+//        private final WeakReference<MainActivity> mActivity;
+//        public GetValueHandler(MainActivity activity) { mActivity = new WeakReference<MainActivity>(activity); }
         public void handleMessage(Message msg){
-            drawView2.setPoint2(130);
-            Toast.makeText(getApplicationContext(),"핸들러",Toast.LENGTH_LONG).show();
+                try {
+                    moistStr = String.format("%.1f",moist);
+                    cdsStr = String.format("%.1f",cds);
+                    temperatureStr = String.format("%.1f",temperature);
+
+                    moistView.setText(moistStr+"%");
+                    cdsView.setText(cdsStr+"%");
+                    temperatureView.setText(temperatureStr+"%");
+                    moistView.invalidate();
+                    cdsView.invalidate();
+                    temperatureView.invalidate();
+                    drawView.invalidate();
+                    drawView2.invalidate();
+                    drawView3.invalidate();
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+
         }
     }
 
@@ -85,18 +148,18 @@ public class MainActivity extends AppCompatActivity {
                     titlePreView.setVisibility(View.GONE);
                     titleImage.setImageBitmap(csb.StringToBitmap(photo));
                 }
-                Thread thread = new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        try{
-                            Message msg = getValueHandler.obtainMessage();
-                            getValueHandler.sendMessage(msg);
-                        }catch (Exception e){
-                            e.printStackTrace();
-                        }
-                    }
-                });
-                thread.start();
+                running = true;
+//                Thread thread = new Thread(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        try{
+//
+//                        }catch (Exception e){
+//                            e.printStackTrace();
+//                        }
+//                    }
+//                });
+//                thread.start();
             }
         }
     }

@@ -13,6 +13,7 @@ import android.view.View;
  */
 
 public class DrawView3 extends DrawViewSet {
+    private float point =0;
     public DrawView3(Context context, AttributeSet attr) {
         super(context, attr);
     }
@@ -26,6 +27,8 @@ public class DrawView3 extends DrawViewSet {
         RectF rect = RectFSetting();
         rect.set(canvas.getWidth()/10, canvas.getHeight()/6, canvas.getWidth()*9/10,canvas.getHeight()*5/6);
         canvas.drawArc(rect, 135, 270, false, pnt);
-        canvas.drawArc(rect, 135, 90, false, pnt2);
+        canvas.drawArc(rect, 135, point, false, pnt2);
     }
+    public void setPoint3(float point){this.point = point;}
+    public float getPoint3(){return this.point;}
 }

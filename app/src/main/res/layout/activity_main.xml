@@ -19,11 +19,11 @@
 
             <LinearLayout
                 android:id="@+id/linearLayout"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="50dp"
                 android:background="@drawable/cirecle_view"
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -48,13 +48,13 @@
             <TextView
                 android:id="@+id/plantTitle"
                 android:layout_width="wrap_content"
-                android:layout_height="21dp"
+                android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="30dp"
                 android:text="싱고니움"
                 android:textColor="#ffffff"
-                android:textSize="18dp"
+                android:textSize="30dp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -64,12 +64,12 @@
                 android:id="@+id/textView6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
+                android:layout_marginBottom="18dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
                 android:text="적정 습도"
                 android:textColor="#ffffff"
-                android:textSize="13dp"
+                android:textSize="25dp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@+id/moist_frame"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -77,8 +77,8 @@
 
             <FrameLayout
                 android:id="@+id/moist_frame"
-                android:layout_width="70dp"
-                android:layout_height="30dp"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
                 android:layout_marginBottom="20dp"
                 android:background="@drawable/cirecle_view"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -92,7 +92,7 @@
                     android:layout_gravity="center"
                     android:text="0%"
                     android:textColor="#cd3216"
-                    android:textSize="12dp"
+                    android:textSize="25dp"
                     android:letterSpacing="-0.1"/>
             </FrameLayout>
 
@@ -103,7 +103,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="0.98"
+        android:layout_weight="1"
         android:background="@drawable/gradient"
         android:orientation="horizontal">
 
@@ -118,10 +118,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="40dp"
                 android:text="육성 TIP"
                 android:textColor="#ffffff"
-                android:textSize="12dp"
+                android:textSize="22dp"
                 android:typeface="sans" />
 
             <com.bigpicture.lee_2.smartpot.LineDrawView
@@ -142,8 +142,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_marginTop="23dp"
+                android:layout_marginTop="42dp"
                 android:text="@string/tip_name"
+                android:textSize="23dp"
                 android:textColor="#ffffff" />
         </LinearLayout>
     </LinearLayout>
@@ -177,26 +178,26 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="100dp"
                 android:text="습도"
                 android:textColor="#4d606f"
-                android:textSize="12dp" />
+                android:textSize="25dp" />
 
             <TextView
                 android:id="@+id/moist_value"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="55dp"
+                android:layout_marginTop="130dp"
                 android:text="0%"
                 android:textColor="#323c45"
-                android:textSize="20dp" />
+                android:textSize="40dp" />
 
             <com.bigpicture.lee_2.smartpot.LineDrawView2
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="85dp" />
+                android:layout_marginTop="185dp" />
         </FrameLayout>
 
         <FrameLayout
@@ -211,30 +212,30 @@
                 android:layout_height="wrap_content" />
 
             <TextView
+                android:id="@+id/cds"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="100dp"
+                android:text="조도"
+                android:textColor="#4d606f"
+                android:textSize="25dp" />
+
+            <TextView
                 android:id="@+id/cds_value"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="40dp"
-                android:text="조도"
-                android:textColor="#4d606f"
-                android:textSize="12dp" />
-
-            <TextView
-                android:id="@+id/cds_value2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="55dp"
+                android:layout_marginTop="130dp"
                 android:text="0%"
                 android:textColor="#323c45"
-                android:textSize="20dp" />
+                android:textSize="40dp" />
 
             <com.bigpicture.lee_2.smartpot.LineDrawView2
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="85dp" />
+                android:layout_marginTop="185dp" />
         </FrameLayout>
 
         <FrameLayout
@@ -253,26 +254,26 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="100dp"
                 android:text="온도"
                 android:textColor="#4d606f"
-                android:textSize="12dp" />
+                android:textSize="25dp" />
 
             <TextView
                 android:id="@+id/temperature_value"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="55dp"
+                android:layout_marginTop="130dp"
                 android:text="0%"
                 android:textColor="#323c45"
-                android:textSize="20dp" />
+                android:textSize="40dp" />
 
             <com.bigpicture.lee_2.smartpot.LineDrawView2
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="85dp" />
+                android:layout_marginTop="185dp" />
         </FrameLayout>
     </LinearLayout>
 
@@ -294,7 +295,7 @@
             android:text="@string/btn_name"
             android:textAllCaps="false"
             android:textColor="#3d4d5a"
-            android:textSize="12dp" />
+            android:textSize="20dp" />
     </LinearLayout>
 
 </LinearLayout>

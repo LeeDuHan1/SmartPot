@@ -15,7 +15,7 @@ import java.util.jar.Attributes;
  */
 
 public class DrawView extends DrawViewSet{
-
+    private float point =0;
     public DrawView(Context context, AttributeSet attr) {
         super(context, attr);
     }
@@ -29,7 +29,9 @@ public class DrawView extends DrawViewSet{
         RectF rect = RectFSetting();
         rect.set(canvas.getWidth()/10, canvas.getHeight()/6, canvas.getWidth()*9/10,canvas.getHeight()*5/6);
         canvas.drawArc(rect, 135, 270, false, pnt);
-        canvas.drawArc(rect, 135, 270, false, pnt2);
+        canvas.drawArc(rect, 135, point, false, pnt2);
 
     }
+    public void setPoint(float point){this.point = point;}
+    public float getPoint(){return this.point;}
 }

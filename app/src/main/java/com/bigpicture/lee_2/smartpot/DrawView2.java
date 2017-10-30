@@ -27,4 +27,5 @@ public class DrawView2 extends DrawViewSet {
     }
 
     public void setPoint2(float point){this.point = point;}
+    public float getPoint2(){return this.point;}
 }
