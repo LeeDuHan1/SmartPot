@@ -26,12 +26,6 @@ public class JsonParser {
         try{
             JSONObject jsonObject = new JSONObject(jsonString);
             value = jsonObject.get(key).toString();
-//            Log.d("제이슨",jsonString);
-//            JSONArray jarray = new JSONArray(jsonString);
-////            for(int i = 0; i < jarray.length(); i++){
-//                JSONObject jObject = jarray.getJSONObject(0);
-//                value = jObject.getString(key);
-//            }
         }catch (JSONException e){
             e.printStackTrace();
         }

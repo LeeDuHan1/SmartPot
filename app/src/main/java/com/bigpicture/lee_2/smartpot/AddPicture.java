@@ -89,8 +89,8 @@ public class AddPicture extends AppCompatActivity {
         }
         imageString = imageString.replace("\n","");
         imageString = imageString.replace(" ","");
-        String tempUrl = pythonURL.concat(imageString);
-        BackGroundTask backGroundTask = new BackGroundTask(dialog, tempUrl,plantNameEdit);
+        String imageServerUrl = pythonURL.concat(imageString);
+        BackGroundTask backGroundTask = new BackGroundTask(dialog, imageServerUrl,plantNameEdit);
         backGroundTask.execute();
         try {
             jsonString = backGroundTask.execute().get();

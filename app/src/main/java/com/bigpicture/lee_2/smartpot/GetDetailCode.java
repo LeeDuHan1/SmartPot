@@ -6,6 +6,8 @@ package com.bigpicture.lee_2.smartpot;
 
 public class GetDetailCode {
     private String plantName,contentsNum;
+    private String getCntntsNoURL = "http://api.nongsaro.go.kr/service/garden/gardenList?apiKey=20171010HECT2JBCAWKELEKZWLHA&sType=sCntntsSj&sText=";
+    private String getGardenDetailURL="http://api.nongsaro.go.kr/service/garden/gardenDtl?apiKey=20171010HECT2JBCAWKELEKZWLHA&cntntsNo=";
 
     public GetDetailCode(String plantName){
         this.plantName = plantName;
@@ -13,7 +15,7 @@ public class GetDetailCode {
 
     public String GetCode(String codeName){
         String getCode ="error";
-        GetParsingData gpd = new GetParsingData("http://api.nongsaro.go.kr/service/garden/gardenList?apiKey=20171010HECT2JBCAWKELEKZWLHA&sType=sCntntsSj&sText="+plantName);
+        GetParsingData gpd = new GetParsingData(getCntntsNoURL+plantName);
         gpd.start();
 
         try{
@@ -24,7 +26,7 @@ public class GetDetailCode {
             e.printStackTrace();
         }
 
-        GetParsingData detailGpd = new GetParsingData("http://api.nongsaro.go.kr/service/garden/gardenDtl?apiKey=20171010HECT2JBCAWKELEKZWLHA&cntntsNo="+contentsNum);
+        GetParsingData detailGpd = new GetParsingData(getGardenDetailURL+contentsNum);
         detailGpd.start();
 
         try{

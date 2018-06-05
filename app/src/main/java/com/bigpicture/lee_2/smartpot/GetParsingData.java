@@ -34,12 +34,9 @@ public class  GetParsingData extends Thread{
         return result;
     }
     public void run(){
-
                 BufferedReader bufreader = null;
                 HttpURLConnection urlConnection = null;
-
                 StringBuffer page = new StringBuffer(); //읽어온 데이터를 저장할 StringBuffer객체 생성
-
                 try {
                     URL url = new URL(pUrl);
                     urlConnection = (HttpURLConnection) url.openConnection();

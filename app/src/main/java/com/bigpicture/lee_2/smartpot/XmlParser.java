@@ -20,9 +20,6 @@ public class XmlParser {
     public XmlParser(String xmlString){
         this.xmlString = xmlString;
     }
-    public String GetString(){
-        return this.xmlString;
-    }
 
     public String DoXmlParser(String tag)throws XmlPullParserException, IOException {
         try{
@@ -48,5 +45,8 @@ public class XmlParser {
             e.printStackTrace();
         }
         return result;
+    }
+    public String GetString(){
+        return this.xmlString;
     }
 }
